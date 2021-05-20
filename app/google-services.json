@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "272715323219",
+    "project_id": "squats-workout",
+    "storage_bucket": "squats-workout.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:272715323219:android:1aac9f5ba6779110e173a6",
+        "android_client_info": {
+          "package_name": "com.example.userdailydata"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "272715323219-3a88697k127ogo29vrd1khbsnnqs3fic.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRefxo9w2ynOYXayd1TRCB-hEYRrf0qT0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "272715323219-3a88697k127ogo29vrd1khbsnnqs3fic.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
