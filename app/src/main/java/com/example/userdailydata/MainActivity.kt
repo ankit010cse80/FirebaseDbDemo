@@ -14,6 +14,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.example.userdailydata.databinding.MainActivityBinding
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -30,8 +31,10 @@ class MainActivity : AppCompatActivity() {
         override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
             list=ArrayList()
+            Log.i("CurrentUser", FirebaseAuth.getInstance().currentUser!!.uid)
             map= mutableMapOf<String,String>()
-        FirebaseDatabase.getInstance().getReference("Dates")
+        FirebaseDatabase.getInstance().getReference(FirebaseAuth.getInstance().currentUser!!.uid)
+            .child("Dates")
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     for (dataSnapshot in snapshot.children){
@@ -42,9 +45,11 @@ class MainActivity : AppCompatActivity() {
                     binding=DataBindingUtil.setContentView(this@MainActivity,R.layout.activity_main)
                     var adapter=ViewPagerAdapter(this@MainActivity,supportFragmentManager)
                     adapter.init()
-                    adapter.addItem(Weekly(),"Daily")
+                    adapter.addItem(Daily(),"Daily")
                     adapter.addItem(Weekly(),"Weekly")
                     adapter.addItem(Monthly(),"Monthly")
+
+
                     binding.viewPager.adapter=adapter
                     binding.tabLayout.setupWithViewPager(binding.viewPager)
 

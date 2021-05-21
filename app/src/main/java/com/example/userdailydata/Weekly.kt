@@ -66,6 +66,8 @@ class Weekly : Fragment() {
     @ExperimentalStdlibApi
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        date=view.findViewById(R.id.date_textview)
+        barChart=view.findViewById(R.id.graph)
         var entries=ArrayList<BarEntry>()
         val c = Calendar.getInstance()
 
@@ -75,8 +77,7 @@ class Weekly : Fragment() {
 
             loadGraph(lastMonday)
         }
-        date=view.findViewById(R.id.date_textview)
-        barChart=view.findViewById(R.id.graph)
+
 
         //binding.dateTextview.text="$date1 - $date2"
         loadGraph(c)
@@ -96,8 +97,8 @@ class Weekly : Fragment() {
         var temp=c1.clone() as Calendar
         temp.add(Calendar.DAY_OF_WEEK,6)
         val date1 = SimpleDateFormat("dd-MMMM").format(c1.time)
-        val date2=SimpleDateFormat("dd-MMMM").format(temp.time)
-        date.text="$date1 - $date2"
+        val date2 = SimpleDateFormat("dd-MMMM").format(temp.time)
+        date.text = "$date1 - $date2"
 
 
 
@@ -128,7 +129,7 @@ class Weekly : Fragment() {
         }
 
         var labels= listOf("Mon","Tue","Wed","Thu","Fri","Sat","Sun")
-        Log.i("EntriesSize", entries.size.toString());
+
 
         var barDataSet= BarDataSet(entries,"")
         barDataSet.setDrawValues(false)
