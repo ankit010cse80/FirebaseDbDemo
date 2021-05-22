@@ -4,9 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data class="WeeklyFragmentBinding">
-        <variable
-            name="date"
-            type="String" />
+
     </data>
 
     <FrameLayout
@@ -37,7 +35,6 @@
                 android:textColor="@color/black"
                 android:textSize="17sp"
                 android:id="@+id/date_textview"
-                android:text="@{date}"
                 android:layout_height="wrap_content"/>
             <com.github.mikephil.charting.charts.BarChart
                 android:layout_width="match_parent"
